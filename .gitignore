@@ -1,10 +1,14 @@
+# Python
+__pycache__/
+*.pyc
 
-# model checkpoints
+# Model checkpoints & training artifacts
 *.pt
-storage/baseline_asd/checkpoint/*
-saved_data/*
-pymp_1yrmql_x/*
-pymp-d3dmkhq3/*
-pymp-h9bu461y/*
-pymp-v6zhiu22/*
+saved_data/
+storage/
 
+# Python multiprocessing temp dirs
+pymp-*
+
+# Logs
+*.log
