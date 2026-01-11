@@ -1,10 +1,10 @@
 
 # model checkpoints
 *.pt
-storage/baseline_asd/checkpoint/
-saved_data/
-pymp_1yrmql_x/
-pymp-d3dmkhq3/
-pymp-h9bu461y/
-pymp-v6zhiu22/
+storage/baseline_asd/checkpoint/*
+saved_data/*
+pymp_1yrmql_x/*
+pymp-d3dmkhq3/*
+pymp-h9bu461y/*
+pymp-v6zhiu22/*
 
