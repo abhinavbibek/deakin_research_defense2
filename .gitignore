@@ -1,6 +1,6 @@
 
 # model checkpoints
 *.pt
-storage/**/checkpoint/
+storage/baseline_asd/checkpoint/
 saved_data/
 
