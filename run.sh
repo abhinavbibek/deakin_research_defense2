@@ -3,4 +3,4 @@
 python ASD.py \
   --config config/baseline_asd.yaml \
   --resume False \
-  --gpu 0
+  --gpu 5
