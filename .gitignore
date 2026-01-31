@@ -12,3 +12,4 @@ pymp-*
 
 # Logs
 *.log
+data/**/*.pkl
