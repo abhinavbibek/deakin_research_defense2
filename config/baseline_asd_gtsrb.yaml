@@ -1,0 +1,96 @@
+---
+seed:
+  seed: 100
+  deterministic: False
+  benchmark: True
+dataset_dir: /home/dgxuser10/cryptonym/data/gtsrb
+num_classes: 43
+saved_dir: ./saved_data
+storage_dir: ./storage
+prefetch: True
+transform:
+  pre: null
+  train:
+    primary:
+      random_crop:
+        size: 32
+        padding: 4
+        padding_mode: reflect
+      random_horizontal_flip:
+        p: 0.5
+    remaining:
+      to_tensor: True
+      normalize:
+        mean: [0.3337, 0.3064, 0.3171]
+        std: [0.2672, 0.2564, 0.2629]
+  test:
+    primary: null
+    remaining:
+      to_tensor: True
+      normalize:
+        mean: [0.3337, 0.3064, 0.3171]
+        std: [0.2672, 0.2564, 0.2629]
+backdoor:
+  poison_ratio: 0.05
+  target_label: 0
+  badnets:
+    trigger_path: ./data/trigger/gtsrb_1.png
+loader:
+  batch_size: 128
+  num_workers: 4
+  pin_memory: True
+
+split:
+  criterion:
+    sce:
+      alpha: 0.1
+      beta: 1
+      num_classes: 43
+
+semi:
+  loader:
+    batch_size: 64
+    num_workers: 4
+    pin_memory: True
+  criterion:
+    mixmatch:
+      lambda_u: 15  
+      rampup_length: 120
+  mixmatch:
+    train_iteration: 1024
+    temperature: 0.5
+    alpha: 0.75
+    num_classes: 43
+
+network:
+  resnet18_cifar:
+    num_classes: 43
+sync_bn: True
+
+optimizer:
+  Adam:
+    lr: 0.002
+lr_scheduler: null
+num_epochs: 120
+
+criterion:
+  cross_entropy:
+    reduction: "mean"
+
+global:
+  epoch_first: 60
+  epoch_second: 90
+  epoch_third: 100 # Adjusted for GTSRB as per paper (T3=100)
+  seed_num: 10
+  epsilon: 0.5
+  t: 5
+  n: 10
+
+meta:
+  optimizer:
+    Adam:
+      lr: 0.015
+  criterion:
+    cross_entropy:
+      reduction: "mean"
+  epoch: 1

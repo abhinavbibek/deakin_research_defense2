@@ -7,6 +7,7 @@ from torch.utils.data import DataLoader
 
 from .backdoor import BadNets
 from .cifar import CIFAR10
+from .gtsrb import GTSRB
 from .prefetch import PrefetchLoader
 
 
@@ -70,6 +71,10 @@ def get_transform(transform_config):
 def get_dataset(dataset_dir, transform, train=True, prefetch=False):
     if "cifar" in dataset_dir:
         dataset = CIFAR10(
+            dataset_dir, transform=transform, train=train, prefetch=prefetch
+        )
+    elif "gtsrb" in dataset_dir.lower():
+        dataset = GTSRB(
             dataset_dir, transform=transform, train=train, prefetch=prefetch
         )
     else:
