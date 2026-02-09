@@ -99,10 +99,6 @@ We compare our reproduction results against the original paper's reported number
 | **No Defense (Baseline)** | **Clean Accuracy (ACC)** | **94.9%** | **92.95%** | 
 | **No Defense (Baseline)** | **Attack Success Rate (ASR)** | **100%** | **100.00%** | 
 
-> **Analysis:**
-> *   **Defense Effectiveness:** Our implementation successfully reduces the ASR from 100% (Baseline) to 1.71% (ASD), closely matching the paper's 1.2%.
-> *   **Model Utility:** The clean accuracy remains high (93.53%), even slightly exceeding the paper's reported value (93.4%).
-> *   **Baseline:** The slight drop in baseline accuracy compared to the paper is within normal variance (random seeds/schedulers), but the 100% ASR confirms the attack injection was successful.
 
 ### 2. GTSRB Evaluation
 
