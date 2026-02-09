@@ -71,18 +71,55 @@ Use our helper script `prepare_gtsrb.py` to prepare the GTSRB dataset from raw i
 python prepare_gtsrb.py --source /path/to/raw/GTSRB --dest /path/to/save/pickles
 ```
 
-### 3. Running Experiments
+#### 3. Running Experiments
+We provide shell scripts to automate the training and testing process for both datasets.
 
-**Run ASD Defense:**
+#### CIFAR-10 Experiments (`run_cifar10.sh`)
 ```bash
-python ASD.py --config config/baseline_asd_cifar10.yaml --gpu 0
+#!/bin/bash
+
+## Train ASD model under BadNets attack for CIFAR10
+python ASD.py \
+  --config config/baseline_asd.yaml \
+  --resume False \
+  --gpu 0
+
+
+## Test ASD model under BadNets attack for CIFAR10
+python test.py \
+  --config config/baseline_asd.yaml \
+  --resume latest_model.pt \
+  --gpu 0
+
+
+## Training No Defense model under BadNets attack for CIFAR10
+python train_baseline.py \
+  --config config/baseline_asd.yaml \
+  --gpu 0
 ```
 
-**Run No Defense (Baseline):**
+#### GTSRB Experiments (`run_gtsrb.sh`)
 ```bash
-python train_baseline.py --config config/baseline_asd_cifar10.yaml --gpu 0
+#!/bin/bash
+
+## Train ASD model under BadNets attack for GTSRB
+python ASD.py \
+  --config config/baseline_asd_gtsrb.yaml \
+  --resume False \
+  --gpu 0
+
+## Test ASD model under BadNets attack for GTSRB
+python test.py \
+  --config config/baseline_asd_gtsrb.yaml \
+  --resume latest_model.pt \
+  --gpu 0
+
+
+## Training No Defense model under BadNets attack for GTSRB
+python train_baseline.py \
+  --config config/baseline_asd_gtsrb.yaml \
+  --gpu 0
 ```
-*(Replace `config/baseline_asd_cifar10.yaml` with `config/baseline_asd_gtsrb.yaml` for GTSRB)*
 
 ## Evaluation & Results Comparison
 
