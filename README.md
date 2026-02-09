@@ -80,21 +80,21 @@ We provide shell scripts to automate the training and testing process for both d
 
 ## Train ASD model under BadNets attack for CIFAR10
 python ASD.py \
-  --config config/baseline_asd.yaml \
+  --config config/baseline_asd_cifar10.yaml \
   --resume False \
   --gpu 0
 
 
 ## Test ASD model under BadNets attack for CIFAR10
 python test.py \
-  --config config/baseline_asd.yaml \
+  --config config/baseline_asd_cifar10.yaml \
   --resume latest_model.pt \
   --gpu 0
 
 
 ## Training No Defense model under BadNets attack for CIFAR10
 python train_baseline.py \
-  --config config/baseline_asd.yaml \
+  --config config/baseline_asd_cifar10.yaml \
   --gpu 0
 ```
 
