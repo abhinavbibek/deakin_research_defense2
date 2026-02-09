@@ -75,14 +75,14 @@ python prepare_gtsrb.py --source /path/to/raw/GTSRB --dest /path/to/save/pickles
 
 **Run ASD Defense:**
 ```bash
-python ASD.py --config config/baseline_asd.yaml --gpu 0
+python ASD.py --config config/baseline_asd_cifar10.yaml --gpu 0
 ```
 
 **Run No Defense (Baseline):**
 ```bash
-python train_baseline.py --config config/baseline_asd.yaml --gpu 0
+python train_baseline.py --config config/baseline_asd_cifar10.yaml --gpu 0
 ```
-*(Replace `config/baseline_asd.yaml` with `config/baseline_asd_gtsrb.yaml` for GTSRB)*
+*(Replace `config/baseline_asd_cifar10.yaml` with `config/baseline_asd_gtsrb.yaml` for GTSRB)*
 
 ## Evaluation & Results Comparison
 
