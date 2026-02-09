@@ -1,6 +1,6 @@
 # Backdoor Defense via Adaptively Splitting Poisoned Dataset (ASD)
 
-This repository provides the official implementation of the defense mechanism described in the CVPR 2023 paper: **Backdoor Defense via Adaptively Splitting Poisoned Dataset**.
+This repository provides the implementation of the defense mechanism described in the CVPR 2023 paper: **Backdoor Defense via Adaptively Splitting Poisoned Dataset**.
 
 ## Paper Details
 
